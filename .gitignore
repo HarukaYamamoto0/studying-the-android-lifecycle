@@ -38,3 +38,7 @@ Thumbs.db
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/shelf/
+
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
