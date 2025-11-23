@@ -25,7 +25,7 @@
         <activity
             android:name=".ReceiverActivity"
             android:exported="true"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             android:theme="@style/Base.Theme.StudyingLifecycle">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
