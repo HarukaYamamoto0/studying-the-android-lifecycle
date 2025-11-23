@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,9 +24,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.harukadev.studyinglifecycle.ui.theme.StudyingLifecycleTheme
 
 class MainActivity : ComponentActivity() {
+    val viewModel: HomeScreenViewModel by viewModels()
 
     private fun log(stage: String) {
         Log.d("LifecycleStage", stage)
@@ -36,7 +39,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         log("onCreate")
-
         enableEdgeToEdge()
 
         setContent {
@@ -50,7 +52,8 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        var text by remember { mutableStateOf("Initial value") }
+                        val state by viewModel.uiState.collectAsStateWithLifecycle()
+                        var text by remember { mutableStateOf(state.text) }
 
                         Text("Saved Text: $text")
 
@@ -58,7 +61,7 @@ class MainActivity : ComponentActivity() {
 
                         TextField(
                             value = text,
-                            onValueChange = { text = it },
+                            onValueChange = { text = it; viewModel.setText(it) },
                             label = { Text("Label") },
                             singleLine = true
                         )
