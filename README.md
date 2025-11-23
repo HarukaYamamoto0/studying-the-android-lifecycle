@@ -19,6 +19,8 @@ The goal was to build a single `ReceiverActivity` that can be opened by:
 * and **reuse itself** without creating duplicate instances
 * **while updating the UI with new data**
 
+![preview](image.png)
+
 ## 🧠 What This Project Demonstrates
 
 ### ### 1. Activity launch modes
@@ -129,7 +131,7 @@ adb shell am start \
 ## 🧩 6. Behavior Summary
 
 | Trigger                                   | Result                                         |
-| ----------------------------------------- | ---------------------------------------------- |
+|-------------------------------------------|------------------------------------------------|
 | Deep link opened while Activity is closed | Activity is created, UI shows deep-link data   |
 | Deep link opened while Activity is OPEN   | Activity is reused (`onNewIntent`), UI updates |
 | ACTION_SEND used while Activity is closed | Activity is created with shared text           |
