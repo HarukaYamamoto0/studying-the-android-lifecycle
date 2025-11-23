@@ -1,4 +1,4 @@
-package com.harukadev.studyinglifecycle.ui.theme
+package com.harukadev.studyinglifecycle
 
 data class HomeScreenState(
     val text: String = ""

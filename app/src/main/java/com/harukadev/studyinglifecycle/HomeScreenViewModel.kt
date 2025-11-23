@@ -2,7 +2,7 @@ package com.harukadev.studyinglifecycle
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.harukadev.studyinglifecycle.ui.theme.HomeScreenState
+import com.harukadev.studyinglifecycle.HomeScreenState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update

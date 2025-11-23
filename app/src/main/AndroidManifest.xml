@@ -10,21 +10,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyingLifecycle">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:launchMode="singleTask"
             android:theme="@style/Theme.StudyingLifecycle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.SEND" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ReceiverActivity"
             android:exported="true"
+            android:launchMode="singleTop"
             android:theme="@style/Base.Theme.StudyingLifecycle">
-            <intent-filter android:icon="@drawable/ic_launcher_background">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="harukadev.com"
+                    android:pathPrefix="/blog"
+                    android:scheme="https" />
+            </intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
